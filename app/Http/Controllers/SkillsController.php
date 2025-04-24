@@ -16,4 +16,13 @@ class SkillsController extends Controller
             'skills' => Skill::all()
         ]);
     }
+
+    public function delete(Skill $skill)
+    {
+
+        $skill->delete();
+        
+        return redirect('/console/skills/list')
+            ->with('message', 'Skill has been deleted!');        
+    }
 }
